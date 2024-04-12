@@ -9,6 +9,7 @@ class Brand(str, Enum):
 
 
 class Snowboard(BaseModel):
+    id: int
     length: int
     color: str
     has_bindings: bool

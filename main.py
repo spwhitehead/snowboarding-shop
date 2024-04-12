@@ -25,4 +25,9 @@ async def add_snowboard(board: Snowboard) -> None:
     snowboards.append(board)
 
 
-@app.put
+@app.put("/snowboards/{item_id}")
+async def update_snowboard(item_id: int, updated_snowboard: Snowboard) -> None:
+    for i, board in enumerate(snowboards):
+        if board.id == item_id:
+            board[i] = updated_snowboard
+            return "Snowboard updated successfully"
