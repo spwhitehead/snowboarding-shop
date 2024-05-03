@@ -44,7 +44,7 @@ async def create_snowboard(snowboard: Snowboard):
 @app.put("/snowboards/{snowboard_id}", response_model=Snowboard)
 def update_snowboard(snowboard_id: int, snowboard: Snowboard):
     if snowboard_id not in snowboards:
-        raise HTTPException(status_code=404, detail="Snowboard not found")
+        snowboards[snowboard.id] = snowboard
     snowboards[snowboard_id] = snowboard
     return snowboard
 
